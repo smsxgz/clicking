@@ -11,9 +11,9 @@ class Clicking(PyKeyboardEvent):
         if keycode == 74:
             if press:
                 os.system('python clicking.py &')
-        else:
-            os.system("kill $(ps aux | grep '[c]licking' | awk '{print $2}')")
-            self.stop()
+        elif keycode == 75:
+            if press:
+                os.system("kill $(ps aux | grep '[c]licking' | awk '{print $2}')")
 
 
 C = Clicking()

@@ -3,7 +3,7 @@ from pymouse import PyMouse
 
 m = PyMouse()
 
-x_dim, y_dim = m.screen_size()
+x, y = m.position()
 while True:
-    m.click(x_dim // 2 - 100, y_dim // 2, 1)
-    sleep(0.02)
+    m.click(x, y, 1)
+    sleep(0.01)
