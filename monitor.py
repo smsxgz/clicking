@@ -7,13 +7,13 @@ class Clicking(PyKeyboardEvent):
         PyKeyboardEvent.__init__(self)
 
     def tap(self, keycode, character, press):
-        print(keycode, character, press)
         if keycode == 74:
             if press:
                 os.system('python clicking.py &')
         elif keycode == 75:
             if press:
-                os.system("kill $(ps aux | grep '[c]licking' | awk '{print $2}')")
+                os.system(
+                    "kill $(ps aux | grep '[c]licking' | awk '{print $2}')")
 
 
 C = Clicking()
