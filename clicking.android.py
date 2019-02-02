@@ -1,10 +1,3 @@
-"""
-First get resolution of the screen of the phone
-    adb shell getevent -p | grep -e "0035" -e "0036"
-Then get the tap position
-    adb shell getevent | grep -e "0035" -e "0036"
-"""
-
 from time import sleep
 from threading import Thread
 from subprocess import Popen
@@ -14,17 +7,18 @@ global CLICK_FLAG
 CLICK_FLAG = False
 
 
-def click(x, y):
+def click(x, y, interval=0.15):
     while CLICK_FLAG:
         Popen('adb shell input tap {} {}'.format(x, y), shell=True)
-        sleep(0.2)
+        sleep(interval)
 
 
 class Clicking(PyKeyboardEvent):
-    def __init__(self, x, y):
+    def __init__(self, x, y, interval=0.15):
         super(Clicking, self).__init__()
         self.x = int(x, 16)
         self.y = int(y, 16)
+        self.interval = interval
 
     def tap(self, keycode, character, press):
         global CLICK_FLAG
@@ -32,7 +26,9 @@ class Clicking(PyKeyboardEvent):
             if press:
                 print('Start clicking!')
                 CLICK_FLAG = True
-                Thread(target=click, args=(self.x, self.y)).start()
+                Thread(
+                    target=click, args=(self.x, self.y,
+                                        self.interval)).start()
         elif keycode == 75:
             if press:
                 print('Stop clicking!')
@@ -40,5 +36,5 @@ class Clicking(PyKeyboardEvent):
 
 
 if __name__ == '__main__':
-    C = Clicking('1cc', '1ca')
+    C = Clicking('1cc', '1ca', 0.15)
     C.run()
