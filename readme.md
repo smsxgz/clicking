@@ -9,7 +9,7 @@ python clicking.py
 ```
 and use key 'F8' to start and 'F9' to stop.
 
-2. For Android,
+2. For Android, follow the steps below.
     1. Install adb tools, link to your phone, and check by
     ```bash
     adb devices
