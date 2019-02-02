@@ -20,7 +20,7 @@ and use key 'F8' to start and 'F9' to stop.
     ```
     3. Get the tap position.
     ```bash
-        adb shell getevent | grep -e "0035" -e "0036"
+    adb shell getevent | grep -e "0035" -e "0036"
     ```
     4. At last, run it by
     ```bash
