@@ -12,7 +12,7 @@ def click():
     while CLICK_FLAG:
         x, y = m.position()
         m.click(x, y, 1)
-        sleep(0.01)
+        sleep(0.018)
 
 
 class Clicking(PyKeyboardEvent):

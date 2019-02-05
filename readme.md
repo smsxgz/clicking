@@ -29,4 +29,4 @@ and use key 'F8' to start and 'F9' to stop.
 
 Update:
 'clicking.android.pure_adb.py' bases on pure-python-adb.  
-Clean code without 'subprocess', but it suffers a much slower communication speed.
+Clean code with getting position automatically, but it suffers a much slower communication speed.
