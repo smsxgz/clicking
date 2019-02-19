@@ -14,20 +14,8 @@ and use key 'F8' to start and 'F9' to stop.
     ```bash
     adb devices
     ```
-    2. Get resolution of the screen of your phone.
-    ```bash
-    adb shell getevent -p | grep -e "0035" -e "0036"
-    ```
-    3. Get the tap position.
-    ```bash
-    adb shell getevent | grep -e "0035" -e "0036"
-    ```
-    4. At last, run it by
+    2. Run
     ```bash
     python clicking.android.py
     ```
-
-Update:
-- 'clicking.android.pure_adb.py' bases on module 'pure-python-adb'.  
-- 'clicking.android.sh.py' bases on module 'sh'.
-Clean code with getting position automatically, but they both suffers a much slower communication speed.
+    then touch the screen to get position.

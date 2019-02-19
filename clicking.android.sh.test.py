@@ -45,7 +45,9 @@ class Clicking(PyKeyboardEvent):
             if press:
                 print('Start clicking!')
                 CLICK_FLAG = True
-                Thread(target=click, args=(self.x, self.y, self.interval)).start()
+                Thread(
+                    target=click, args=(self.x, self.y,
+                                        self.interval)).start()
         elif keycode == 75:
             if press:
                 print('Stop clicking!')
